@@ -4,6 +4,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import entities.CPFGenerator;
 
+/**
+ * The Program class is the entry point of the CPF Generator application.
+ * It provides a menu-driven interface for generating new CPF numbers.
+ */
 public class Program {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -20,17 +24,17 @@ public class Program {
                         break;
     
                     case 2:
-                        System.out.println("exiting...");
+                        System.out.println("Exiting...");
                         return;
                 
                     default:
                         System.out.println("Invalid option. Try again!!");
                         break;
                 }
-                
             }
         } catch (InputMismatchException e) {
-            System.out.println("String not allowed, just integer numbers" + e.getMessage());
+            System.out.println("Invalid input. Only integer numbers are allowed.");
+            sc.next();  // Clear the invalid input
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
         } finally {
@@ -38,6 +42,9 @@ public class Program {
         }
     }
 
+    /**
+     * Prints the menu options to the console.
+     */
     private static void printMenu() {
         System.out.println("-------------------------------");
         System.out.println("|         CPF GENERATOR       |");
@@ -47,6 +54,9 @@ public class Program {
         System.out.println("-------------------------------");
     }
 
+    /**
+     * Generates a new CPF number and prints it to the console.
+     */
     private static void generateCPF() {
         CPFGenerator cpf = new CPFGenerator();
         System.out.println();
